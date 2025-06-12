@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ex-Boyfriend Feedback Survey</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
+
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: #1c1c1c;
+      color: #e0d4d4;
+      max-width: 700px;
+      margin: 60px auto;
+      padding: 50px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+      background-image: linear-gradient(145deg, #2e2e2e 0%, #1a1a1a 100%);
+      border: 2px solid #3a3a3a;
+    }
+
+    h1 {
+      text-align: center;
+      color: #b30000;
+      font-size: 2.8em;
+      margin-bottom: 5px;
+      text-shadow: 1px 1px #000;
+      font-family: Georgia, serif;
+    }
+
+    h1 small {
+      display: block;
+      font-size: 0.6em;
+      color: #a99e9e;
+      margin-top: 6px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 25px;
+      margin-bottom: 8px;
+      color: #f5e6e6;
+    }
+
+    select,
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #444;
+      border-radius: 4px;
+      font-family: inherit;
+      background-color: #2b2b2b;
+      color: #eee;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      background-color: #b30000;
+      color: #fff;
+      font-weight: bold;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1em;
+      width: 100%;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #990000;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Jennifer's Post-Relationship Performance Review <br><small>(The survey you didn’t know you needed)</small></h1>
+  <form action="https://formsubmit.co/jenniferleegarcia94@gmail.com" method="POST" onsubmit="handleSubmit(event)">
+    <label for="ex-name">Your Name: </label>
+    <input type="text" id="ex-name" name="ex-name" placeholder="Be bold, not boring" required />
+
+    <label for="relationship-length">How long did our legendary trainwreck last?</label>
+    <select id="relationship-length" name="relationship-length" required>
+      <option value="" disabled selected>Select your suffering</option>
+      <option value="blink">Less than a month (Wait—do I even know you?)</option>
+      <option value="1-6months">1 to 6 months (You’re one of the smart ones who ran while you still could)</option>
+      <option value="6-12months">6 months to 1 year (Just long enough to start regretting life choices)</option>
+      <option value="1-4years">1 to 4 years (That explains the need for therapy and emotional scarring)</option>
+      <option value="4+years">4+ years (You either deserve a Purple Heart or a Darwin Award, Im not picky)</option>
+      <option value="entangled">Still emotionally entangled (but sure, fill this out like everything is normal)</option>
+    </select>
+
+    <label for="best-moment">Which of my many irresistible traits almost made you ignore the red flags?</label>
+    <select id="best-moment" name="best-moment" onchange="handleOtherTrait(this.value)" required>
+      <option value="" disabled selected>Choose wisely...</option>
+      <option value="humor">My sense of humor (especially when I was the only one laughing)</option>
+      <option value="intelligence">My intelligence (when the good half of my gene pool decided to clock in)</option>
+      <option value="looks">My looks — the *real* reason you tolerated my insanity</option>
+      <option value="cooking">My cooking (USUALLY only triggered by a mild manic episode)</option>
+      <option value="sexy_time">Let’s just say... the “sexy time” was never boring</option>
+      <option value="other">Other (because clearly I’m full of surprises)</option>
+    </select>
+
+    <div id="other-trait-container" style="display: none;">
+      <label for="other-trait">Please specify this *mysterious* trait that even I might not know about:</label>
+      <input type="text" id="other-trait" name="other-trait" placeholder="Be creative, but not delusional" />
+    </div>
+
+    <label for="worst-habit">Which habit made you question your life choices?</label>
+    <select id="worst-habit" name="worst-habit" onchange="handleWorstHabit(this.value)" required>
+      <option value="" disabled selected>Too many to choose from</option>
+      <option value="meme_spam">Spamming memes like it was a full-time job</option>
+      <option value="snore_fest">My love language being tickling and biting(I REGRET NOTHING)</option>
+      <option value="weird_food">Having full blown conversations with myself (LOOK another crazy red flag!)</option>
+      <option value="overthinking">Overthinking like it was an Olympic sport</option>
+      <option value="big-sniff">Sniffing my deodorant before EVERTIME I put it on. (Yes, i still do this... NO, you cant
+        judge me!)</option>
+      <option value="other">Other (please enlighten me)</option>
+    </select>
+
+    <div id="other-habit-container" style="display: none;">
+      <label for="other-habit">Wow, what *else* did I do wrong? Be specific:</label>
+      <input type="text" id="other-habit" name="other-habit" placeholder="Roast me, coward." />
+    </div>
+
+    <label for="date_again">Would you date me again?</label>
+    <select id="date_again" name="date_again" required>
+      <option value="" disabled selected>Choose your fate</option>
+      <option value="hell_yes">Hell yes!....(are you okay?)</option>
+      <option value="maybe">Maybe... but only if I’m drunk</option>
+      <option value="never">Never in a million years</option>
+      <option value="free_food_only">Only if there’s free food involved</option>
+      <option value="rocks">If it was a choice between a rock and you, I would go with the rock</option>
+    </select>
+
+    <label for="experience-rating">Rate Your Overall Experience With Me™️:</label>
+    <select id="experience-rating" name="experience-rating" required>
+      <option value="" disabled selected>Brace yourself...</option>
+      <option value="5-stars">⭐⭐⭐⭐⭐ – A chaotic masterpiece</option>
+      <option value="4-stars">⭐⭐⭐⭐ – Mostly fun, (I'll try to ignore the Stockholm Syndrome)</option>
+      <option value="3-stars">⭐⭐⭐ – Tis' but a scratch!</option>
+      <option value="2-stars">⭐⭐ – Emotional damage included</option>
+      <option value="1-star">⭐ – Send help</option>
+      <option value="zero-stars">🗑️ – Throw it in rice, it's broken</option>
+    </select>
+
+    <label for="advice">Any parting words of wisdom or unspoken truths?</label>
+    <textarea id="advice" name="advice" rows="4"
+      placeholder="Go ahead, don’t hold back. 0% pettiness here, I PROMISE"></textarea>
+
+    <label for="final-remarks">Give me compliments, or roast me I'm not particular</label>
+    <textarea id="final-remarks" name="final-remarks" rows="3" placeholder="Mic drop here..."></textarea>
+
+    <button type="submit">Submit My Therapy Bills</button>
+  </form>
+
+  <div id="confirmation">
+    <h2>💌 Thanks for reliving the trauma!</h2>
+    <p>Your feedback will be ignored in the order it was received.</p>
+  </div>
+
+  <script>
+    function handleOtherTrait(value) {
+      const otherInput = document.getElementById("other-trait-container");
+      const otherTextBox = document.getElementById("other-trait");
+
+      if (value === "other") {
+        otherInput.style.display = "block";
+      } else {
+        otherInput.style.display = "none";
+        otherTextBox.value = "";
+      }
+    }
+
+    function handleWorstHabit(value) {
+      const otherHabitInput = document.getElementById("other-habit-container");
+      const otherHabitBox = document.getElementById("other-habit");
+
+      if (value === "other") {
+        otherHabitInput.style.display = "block";
+      } else {
+        otherHabitInput.style.display = "none";
+        otherHabitBox.value = "";
+      }
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      document.querySelector("form").style.display = "none";
+      document.getElementById("confirmation").style.display = "block";
+      // Submit the form via JS after showing confirmation to avoid page reload
+      event.target.submit();
+    }
+  </script>
+</body>
+
+</html>
